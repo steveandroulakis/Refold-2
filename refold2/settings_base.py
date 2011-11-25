@@ -1,4 +1,5 @@
 import os
+
 # Django settings for refold2 project.
 
 DEBUG = True
@@ -116,6 +117,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
+    'completion',
     'refold',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
@@ -143,3 +145,19 @@ LOGGING = {
         },
     }
 }
+
+AUTOCOMPLETE_BACKEND = 'completion.backends.db_backend.DatabaseAutocomplete'
+
+# todo: put this autocomplete search indexing code somewhere meaningful
+# from completion import site
+# from models.refold import Protein
+# from refold.search_providers import ProteinSearchProvider
+#
+# site.register(Protein, ProteinSearchProvider)
+# >>> from completion import site
+# >>> from refold.models import Protein
+# >>> from refold.search_providers import ProteinSearchProvider
+# >>>
+# >>> site.register(Protein, ProteinSearchProvider)
+# >>> site.store_providers()
+# >>> site.suggest('ep',4)
