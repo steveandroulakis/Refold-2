@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Refolding Records ({{object_list|length}})</h2>
+    <ul>
+		<div>
+			<table class="datatable">
+			<tr>
+			    <th>Protein</th>
+			    <th>Class</th>
+			    <th>Organism</th>
+			    <th>Family</th>
+			    <th>Molecularity</th>
+			    <th>MW (Da)</th>
+			    <th>Refolding Method</th>									
+				<th>Redox Agent</th>
+			</tr>
+			{% for refoldingrecord in object_list %}
+			<tr>
+			    <td><a href='{{refoldingrecord.refolding_id}}'>{{ refoldingrecord.construct.homologue.protein.name }}</a></td>
+				<td>{{ refoldingrecord.construct.homologue.protein.family.scop_class }}</td>
+			    <td>{{ refoldingrecord.construct.homologue.species.common_name }}</td>
+				<td>{{ refoldingrecord.construct.homologue.protein.family }}</td>
+			    <td>{{ refoldingrecord.construct.oligo_state.oligo_state }}</td>
+				<td>{{ refoldingrecord.construct.mol_wt }}</td>
+			    <td>{{ refoldingrecord.ref_technique.ref_technique }}</td>
+				<td>{{ refoldingrecord.redox_agent.redox_agent }}</td>												
+			</tr>
+			{% endfor %}																																						
+			</table>
+		</div>
+        
+    </ul>
+{% endblock %}
