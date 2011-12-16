@@ -17,7 +17,7 @@
 			</tr>
 			{% for refoldingrecord in object_list %}
 			<tr>
-				<td>{{ refoldingrecord.ref_num }}</td>
+				<td><a href="../../refoldingrecord/{{refoldingrecord.refolding_id}}/">{{ refoldingrecord.ref_num }}</a></td>
 				<td>{{ refoldingrecord.construct.homologue.protein.family.scop_class }}</td>
 			    <td>{{ refoldingrecord.construct.homologue.species.common_name }}</td>
 				<td>{{ refoldingrecord.construct.homologue.protein.family }}</td>

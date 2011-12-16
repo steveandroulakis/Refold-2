@@ -1,4 +1,4 @@
-body{ font: 80% "Trebuchet MS", sans-serif; margin: 20px;}
+body{ font: 80% "Trebuchet MS", sans-serif; margin: 20px; font-size: 16px;}
 
 ul {
 	list-style-type: none;
@@ -49,6 +49,19 @@ table.datatable th
 }
 
 table.datatable th.row_title {
+    width: 20%;
+}
+
+table.datatable th.detail_header {
+    color: black;
+    font-size: 140%;
+}
+
+table.datatable th.detail_header .small {
+   font-size: 60%;
+}
+
+table.datatable th.detail_subheader {
     width: 20%;
 }
 
