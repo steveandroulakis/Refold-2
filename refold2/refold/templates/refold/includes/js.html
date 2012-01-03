@@ -1,0 +1,17 @@
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="{{ STATIC_URL }}/js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}/js/jquery-ui-1.8.16.custom.min.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("input#protein-autocomplete").autocomplete({
+			dataType: "jsonp",
+			source: "/protein/search/json/",
+				minLength: 2,
+				select: function( event, ui ) {
+					// alert("Selected: " + ui.item.value + " aka " + ui.item.id);
+					window.location.href = "/protein/" + ui.item.id + "/";
+				}
+		});	
+	});
+</script>

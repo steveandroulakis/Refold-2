@@ -3,9 +3,26 @@
 <head>
 	<link type="text/css" href="{{ STATIC_URL }}/css/style.css" rel="stylesheet" />
     <title>{% block title %}Refold Revamp{% endblock %}</title>
+	
+	{% include "refold/includes/js.html" %}
+	
+	{% block script %}{% endblock %}
 </head>
 
 <body>
+	<div id="header" class="clearfix">
+		<div class="container">
+			
+			<div class="site-logo">
+				REFOLD
+			</div>
+			
+			<div class="search-container">
+				Search for a Refolding Record by Protein: {% include "refold/includes/autocomplete.html" %}
+			</div>
+		</div>
+	</div>
+	
     <div id="sidebar">
         {% block sidebar %}
         {# <ul> #}

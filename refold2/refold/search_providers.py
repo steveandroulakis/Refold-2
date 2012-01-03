@@ -11,7 +11,7 @@ class ProteinSearchProvider(AutocompleteProvider):
         return datetime.now()
 
     def get_data(self, obj):
-        return {'name': obj.name, 'protein_id': obj.protein_id}
+        return {'id': obj.protein_id, 'value': obj.name}
 
     def get_queryset(self):
         return self.model._default_manager.all()

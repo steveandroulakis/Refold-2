@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Refolding Record:</h2>
+    <ul>
+		<div>
+			<table class="datatable">
+			<tr>
+			    <th colspan="2" class="detail_header">Protein <span class="small"><a href="../../protein/{{refoldingrecord.construct.homologue.protein.protein_id}}/">See all refolding records for this protein...</a></span></th>
+			</tr>
+			<tr>
+			    <th class="detail_subheader">Protein Name</th>
+				<td>{{ refoldingrecord.construct.homologue.protein.name }}</td>
+			</tr>
+			<tr>
+			    <th class="detail_subheader">Abbreviated Name</th>
+				<td>{{ refoldingrecord.construct.homologue.protein.name_short }}</td>
+			</tr>
+			<tr>
+			    <th class="detail_subheader">SCOP Family</th>
+			    <td>{{ refoldingrecord.construct.homologue.protein.family.family }}</td>
+			</tr>	
+			<tr>
+			    <th class="detail_subheader">Structure Notes</th>
+			    <td>{{ refoldingrecord.construct.homologue.structure_notes }}</td>
+			</tr>
+			<tr>
+			    <th class="detail_subheader">Organism</th>
+			    <td>{{ refoldingrecord.construct.homologue.species.organism }}</td>
+			</tr>
+			<tr>
+			    <th class="detail_subheader">UniProt Accession</th>
+			    <td>{{ refoldingrecord.construct.homologue.species.uniprot }}</td>
+			</tr>
+			<tr>
+			    <th class="detail_subheader">SCOP Unique ID</th>
+			    {# <td>{{ refoldingrecord.construct.oligo_state.oligo_state }}</td> #}<td>n/a</td>
+			</tr>	
+			<tr>
+			    <th class="detail_subheader">Structure Solved</th>
+			    <td>{{ refoldingrecord.construct.homologue.species.structure_solved }}</td>
+			</tr>
+			<tr>
+			    <th class="detail_subheader">Class</th>
+			    <td>{{ refoldingrecord.construct.homologue.protein.family.scop_class }}</td>
+			</tr>
+			<tr>
+			    <th class="detail_subheader">Molecularity</th>
+			    <td>{{ refoldingrecord.construct.oligo_state.oligo_state }}</td>
+			</tr>																																																
+			</table>
+		</div>
+		<br/>
+        <div>
+			<a href="../">Back to refolding records...</a>
+		</div>
+    </ul>
+{% endblock %}
+
+{# temp text #}
+{# <td><a href='{{refoldingrecord.refolding_id}}'>{{ refoldingrecord.construct.homologue.protein.name }}</a></td> #}
+{# <td>{{ refoldingrecord.construct.homologue.protein.family.scop_class }}</td> #}
+{# <td>{{ refoldingrecord.construct.homologue.species.common_name }}</td> #}
+{# <td>{{ refoldingrecord.construct.homologue.protein.family }}</td> #}
+{# <td>{{ refoldingrecord.construct.oligo_state.oligo_state }}</td> #}
+{# <td>{{ refoldingrecord.construct.mol_wt }}</td> #}
+{# <td>{{ refoldingrecord.ref_technique.ref_technique }}</td> #}
+{# <td>{{ refoldingrecord.redox_agent.redox_agent }}</td> #}

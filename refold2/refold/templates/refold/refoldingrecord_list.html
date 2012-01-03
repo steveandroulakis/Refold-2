@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h2>Refolding Records ({{object_list|length}})</h2>
+{% include "refold/includes/pagination.html" %}
+    <h2>Refolding Records</h2>
     <ul>
 		<div>
 			<table class="datatable">
@@ -15,7 +16,7 @@
 			    <th>Refolding Method</th>									
 				<th>Redox Agent</th>
 			</tr>
-			{% for refoldingrecord in object_list %}
+			{% for refoldingrecord in refoldingrecord_list %}
 			<tr>
 			    <td><a href="{{refoldingrecord.refolding_id}}">{{ refoldingrecord.construct.homologue.protein.name }}</a></td>
 				<td>{{ refoldingrecord.construct.homologue.protein.family.scop_class }}</td>
@@ -31,4 +32,5 @@
 		</div>
         
     </ul>
+{% include "refold/includes/pagination.html" %}
 {% endblock %}
