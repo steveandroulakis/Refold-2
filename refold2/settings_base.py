@@ -87,6 +87,20 @@ STATICFILES_FINDERS = (
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'y5#p2kp+s*qgz+0(vfiqtd5bx%nq^dvu3!o-0!4u^rrpu2o916'
 
+# the default django context processors
+TEMPLATE_CONTEXT_PROCESSORS_DEFAULT = \
+    ("django.contrib.auth.context_processors.auth",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.media",
+    "django.core.context_processors.static",
+    "django.contrib.messages.context_processors.messages")
+
+TEMPLATE_CONTEXT_PROCESSORS = \
+    ('django.contrib.auth.context_processors.auth',
+    'refold.context_processors.refolding_record_count') + \
+    TEMPLATE_CONTEXT_PROCESSORS_DEFAULT
+
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
@@ -147,17 +161,3 @@ LOGGING = {
 }
 
 AUTOCOMPLETE_BACKEND = 'completion.backends.db_backend.DatabaseAutocomplete'
-
-# todo: put this autocomplete search indexing code somewhere meaningful
-# from completion import site
-# from models.refold import Protein
-# from refold.search_providers import ProteinSearchProvider
-#
-# site.register(Protein, ProteinSearchProvider)
-# >>> from completion import site
-# >>> from refold.models import Protein
-# >>> from refold.search_providers import ProteinSearchProvider
-# >>>
-# >>> site.register(Protein, ProteinSearchProvider)
-# >>> site.store_providers()
-# >>> site.suggest('ep',4)

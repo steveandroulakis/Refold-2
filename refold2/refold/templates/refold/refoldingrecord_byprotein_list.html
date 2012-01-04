@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h2>Refolding Records ({{object_list|length}}) for Protein: {{searchterm}}</h2>
+    <h2>Refolding Records ({{object_list|length}}) for Protein: <a href="../../protein/{{searchterm.protein_id}}/">{{searchterm.name}}</a></h2>
     <ul>
 		<div>
 			<table class="datatable">
@@ -17,7 +17,8 @@
 			</tr>
 			{% for refoldingrecord in object_list %}
 			<tr>
-				<td><a href="../../refoldingrecord/{{refoldingrecord.refolding_id}}/">{{ refoldingrecord.ref_num }}</a></td>
+				<td><a href="../../refoldingrecord/{{refoldingrecord.refolding_id}}/">
+					{{ refoldingrecord.ref_num }}</a></td>
 				<td>{{ refoldingrecord.construct.homologue.protein.family.scop_class }}</td>
 			    <td>{{ refoldingrecord.construct.homologue.species.common_name }}</td>
 				<td>{{ refoldingrecord.construct.homologue.protein.family }}</td>

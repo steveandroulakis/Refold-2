@@ -6,7 +6,7 @@
 		<div>
 			<table class="datatable">
 			<tr>
-			    <th colspan="2" class="detail_header">Protein <span class="small"><a href="../../protein/{{refoldingrecord.construct.homologue.protein.protein_id}}/">See all refolding records for this protein...</a></span></th>
+			    <th colspan="2" class="detail_header">Protein <div class="right"><span class="small"><a href="../../protein/{{refoldingrecord.construct.homologue.protein.protein_id}}/">See all refolding records for this protein...</div></a></span></th>
 			</tr>
 			<tr>
 			    <th class="detail_subheader">Protein Name</th>
@@ -26,11 +26,11 @@
 			</tr>
 			<tr>
 			    <th class="detail_subheader">Organism</th>
-			    <td>{{ refoldingrecord.construct.homologue.species.organism }}</td>
+			    <td>{{ refoldingrecord.construct.homologue.species.common_name }}</td>
 			</tr>
 			<tr>
 			    <th class="detail_subheader">UniProt Accession</th>
-			    <td>{{ refoldingrecord.construct.homologue.species.uniprot }}</td>
+			    <td><a href="http://beta.uniprot.org/uniprot/{{ refoldingrecord.construct.homologue.uniprot }}" target="_blank">{{ refoldingrecord.construct.homologue.uniprot }}</a></td>
 			</tr>
 			<tr>
 			    <th class="detail_subheader">SCOP Unique ID</th>
@@ -49,20 +49,217 @@
 			    <td>{{ refoldingrecord.construct.oligo_state.oligo_state }}</td>
 			</tr>																																																
 			</table>
+			<table class="datatable">
+			<tr>
+			    <th colspan="2" class="detail_header">Construct</th>
+			</tr>
+			<tr>
+			    <th class="detail_subheader">Full Length</th>
+				<td>{{ refoldingrecord.construct.full_length }}</td>
+			</tr>
+			<tr>
+			    <th class="detail_subheader">Domain</th>
+				<td>{{ refoldingrecord.construct.domain }}</td>
+			</tr>
+			<tr>
+			    <th class="detail_subheader">Chimera</th>
+				<td>{{ refoldingrecord.construct.chimera }}</td>
+			</tr>
+			<tr>
+			    <th class="detail_subheader">Variants</th>
+				<td>{{ refoldingrecord.construct.variants }}</td>
+			</tr>
+			<tr>
+			    <th class="detail_subheader">Chain Length</th>
+				<td>{{ refoldingrecord.construct.chain_length }}</td>
+			</tr>
+			<tr>
+			    <th class="detail_subheader">Molecular Weight</th>
+				<td>{{ refoldingrecord.construct.mol_wt }}</td>
+			</tr>
+			<tr>
+			    <th class="detail_subheader">Pi</th>
+				<td>{{ refoldingrecord.construct.pi }}</td>
+			</tr>	
+			<tr>
+			    <th class="detail_subheader">Molecular Weight</th>
+				<td>{{ refoldingrecord.construct.mol_wt }}</td>
+			</tr>
+			<tr>
+			    <th class="detail_subheader">Disulphides</th>
+				<td>{{ refoldingrecord.construct.disulphides.disulphides }}</td>
+			</tr>
+			<tr>
+			    <th class="detail_subheader">Full Sequence</th>
+				<td>{{ refoldingrecord.construct.sequence }}</td>
+			</tr>	
+			<tr>
+			    <th class="detail_subheader">Notes</th>
+				<td>{{ refoldingrecord.construct.notes }}</td>
+			</tr>																																																																				
+			</table>		
+			<table class="datatable">
+			<tr>
+			    <th colspan="2" class="detail_header">Expression</th>
+			</tr>
+			<tr>
+			    <th class="detail_subheader">Report</th>
+				<td>{{ refoldingrecord.report.authors }}
+					({{ refoldingrecord.report.year }})
+					{{ refoldingrecord.report.journal.journal }},
+					<strong>{{ refoldingrecord.report.volume }}</strong>,
+					{{ refoldingrecord.report.pages }}</td>
+			</tr>		
+			<tr>
+			    <th class="detail_subheader">Project Aim</th>
+				<td>{{ refoldingrecord.project_aims }}</td>
+			</tr>
+			<tr>
+			    <th class="detail_subheader">Fusion</th>
+				<td>{{ refoldingrecord.fusion.fusion }}</td>
+			</tr>
+			<tr>
+			    <th class="detail_subheader">Protein Expression and Production</th>
+				<td>{{ refoldingrecord.protein_expression_and_production }}</td>
+			</tr>		
+			<tr>
+			    <th class="detail_subheader">Expression Host</th>
+				<td>{{ refoldingrecord.expression_host }}</td>
+			</tr>
+			<tr>
+			    <th class="detail_subheader">Expression Strain</th>
+				<td>{{ refoldingrecord.expression_strain }}</td>
+			</tr>
+			<tr>
+			    <th class="detail_subheader">Expression Temp</th>
+				<td>{{ refoldingrecord.expression_temp }}</td>
+			</tr>
+			<tr>
+			    <th class="detail_subheader">Expression Time</th>
+				<td>{{ refoldingrecord.expression_time }}</td>
+			</tr>
+			<tr>
+			    <th class="detail_subheader">Expression Vector</th>
+				<td>{{ refoldingrecord.expression_vector }}</td>
+			</tr>
+			<tr>
+			    <th class="detail_subheader">Expression Protocol</th>
+				<td>{{ refoldingrecord.expression_protocol }}</td>
+			</tr>			
+			<tr>
+			    <th class="detail_subheader">Method of Induction</th>
+				<td>{{ refoldingrecord.method_induction.method_induction }}</td>
+			</tr>
+			<tr>
+			    <th class="detail_subheader">Cell Density at Induction</th>
+				<td>OD {{ refoldingrecord.cell_density_od }} =
+					{{ refoldingrecord.cell_density_equals }}</td>
+			</tr>		
+			<tr>
+			    <th class="detail_subheader">Cell Disruption Method</th>
+				<td>{{ refoldingrecord.cell_disrupt_method.cell_disrupt_method }}</td>
+			</tr>
+			<tr>
+			    <th class="detail_subheader">Lytic Agent</th>
+				<td>{{ refoldingrecord.lytic_agent.lytic_agent }}</td>
+			</tr>
+			<tr>
+			    <th class="detail_subheader">Pre-Refolding Purification</th>
+				<td>{{ refoldingrecord.pre_purification.pre_purification }}</td>
+			</tr>	
+			<tr>
+			    <th class="detail_subheader">Solubility</th>
+				<td>{{ refoldingrecord.solubility }}</td>
+			</tr>																																																																																																												
+			</table>
+			<table class="datatable">
+			<tr>
+			    <th colspan="2" class="detail_header">Refolding</th>
+			</tr>
+			<tr>
+			    <th class="detail_subheader">Refolding Method</th>
+				<td>{{ refoldingrecord.ref_technique.ref_technique }}</td>
+			</tr>	
+			<tr>
+			    <th class="detail_subheader">Wash Buffer</th>
+				<td>{{ refoldingrecord.wash_buffer }}</td>
+			</tr>
+			<tr>
+			    <th class="detail_subheader">Solubilization Buffer</th>
+				<td>{{ refoldingrecord.solubilization_buffer }}</td>
+			</tr>
+			<tr>
+			    <th class="detail_subheader">Refolding Buffer</th>
+				<td>{{ refoldingrecord.refolding_buffer }}</td>
+			</tr>
+			<tr>
+			    <th class="detail_subheader">Pre-Refolding Purification</th>
+				<td>{{ refoldingrecord.pre_purification.pre_purification }}</td>
+			</tr>
+			<tr>
+			    <th class="detail_subheader">Tag Cleaved</th>
+				<td>{{ refoldingrecord.tag_cleaved }}</td>
+			</tr>
+			<tr>
+			    <th class="detail_subheader">Refolding pH</th>
+				<td>{{ refoldingrecord.refolding_ph }}</td>
+			</tr>
+			<tr>
+			    <th class="detail_subheader">Refolding Temperature</th>
+				<td>{{ refoldingrecord.refolding_temp }}</td>
+			</tr>
+			<tr>
+			    <th class="detail_subheader">Protein Concentration</th>
+				<td>{{ refoldingrecord.protein_conc }}</td>
+			</tr>
+			<tr>
+			    <th class="detail_subheader">Refolding Time</th>
+				<td>{{ refoldingrecord.refolding_time }}</td>
+			</tr>
+			<tr>
+			    <th class="detail_subheader">Redox Agent</th>
+				<td>{{ refoldingrecord.redox_agent.redox_agent }}</td>
+			</tr>
+			<tr>
+			    <th class="detail_subheader">Redox Agent Concentration</th>
+				<td>{{ refoldingrecord.redox_concentration }}</td>
+			</tr>
+			<tr>
+			    <th class="detail_subheader">Refolding Protocol</th>
+				<td>{{ refoldingrecord.protocol }}</td>
+			</tr>
+			<tr>
+			    <th class="detail_subheader">Refolding Assay</th>
+				<td>{{ refoldingrecord.refolding_assay }}</td>
+			</tr>
+			<tr>
+			    <th class="detail_subheader">Refolding Chaperones</th>
+				<td>{{ refoldingrecord.refolding_chaperones }}</td>
+			</tr>
+			<tr>
+			    <th class="detail_subheader">Refolding Additives</th>
+				<td>{{ refoldingrecord.refolding_additives }}</td>
+			</tr>
+			<tr>
+			    <th class="detail_subheader">Additives Concentration</th>
+				<td>{{ refoldingrecord.additives_concentration }}</td>
+			</tr>						
+			<tr>
+			    <th class="detail_subheader">Refolding Yield</th>
+				<td>{{ refoldingrecord.refolding_yield }}</td>
+			</tr>
+			<tr>
+			    <th class="detail_subheader">Purity</th>
+				<td>{{ refoldingrecord.purity }}</td>
+			</tr>
+			<tr>
+			    <th class="detail_subheader">Notes</th>
+				<td>{{ refoldingrecord.notes }}</td>
+			</tr>																																																																																																											
+			</table>							
 		</div>
-		<br/>
         <div>
 			<a href="../">Back to refolding records...</a>
 		</div>
     </ul>
 {% endblock %}
-
-{# temp text #}
-{# <td><a href='{{refoldingrecord.refolding_id}}'>{{ refoldingrecord.construct.homologue.protein.name }}</a></td> #}
-{# <td>{{ refoldingrecord.construct.homologue.protein.family.scop_class }}</td> #}
-{# <td>{{ refoldingrecord.construct.homologue.species.common_name }}</td> #}
-{# <td>{{ refoldingrecord.construct.homologue.protein.family }}</td> #}
-{# <td>{{ refoldingrecord.construct.oligo_state.oligo_state }}</td> #}
-{# <td>{{ refoldingrecord.construct.mol_wt }}</td> #}
-{# <td>{{ refoldingrecord.ref_technique.ref_technique }}</td> #}
-{# <td>{{ refoldingrecord.redox_agent.redox_agent }}</td> #}

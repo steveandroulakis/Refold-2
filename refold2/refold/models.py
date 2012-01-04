@@ -376,6 +376,66 @@ class RefoldingRecord(RefoldBaseModel):
     class Meta:
         db_table = u'refolding_record'
 
+    def project_aims(self):
+        rpa = RefoldingProjectAim.objects.filter(refolding_id=self.refolding_id)
+        pas = list()
+        for rp in rpa:
+            pa = ProjectAim.objects.get(project_aim_id=rp.project_aim_id)
+            pas.append(pa.project_aim)
+
+        pas_string = ','.join(pas)
+        return pas_string
+
+    def redox_concentration(self):
+        rxc = RedoxConc.objects.filter(refolding_id=self.refolding_id)
+        rxcs = list()
+        for rx in rxc:
+            rxcs.append(rx.redox_concentration)
+
+        rxcs_string = ','.join(rxcs)
+        return rxcs_string
+
+    def refolding_assay(self):
+        ra = RefoldingAssay.objects.filter(refolding_id=self.refolding_id)
+        ras = list()
+        for r in ra:
+            a = Assay.objects.get(assay_id=r.assay_id)
+            ras.append(a.assay)
+
+        ras_string = ','.join(ras)
+        return ras_string
+
+    def refolding_chaperones(self):
+        ra = RefoldingChaperones.objects.filter(refolding_id=self.refolding_id)
+        ras = list()
+        for r in ra:
+            a = Chaperones.objects.get(chaperones_id=r.chaperones_id)
+            ras.append(a.chaperones)
+
+        ras_string = ','.join(ras)
+        return ras_string
+
+    def refolding_additives(self):
+        ra = RefoldingAdditive.objects.filter(refolding_id=self.refolding_id)
+        ras = list()
+        for r in ra:
+            a = Additive.objects.get(additive_id=r.additive_id)
+            ras.append(a.additive)
+
+        ras_string = ','.join(ras)
+        return ras_string
+
+    def protein_expression_and_production(self):
+        if self.protein_exp == "y":
+            return "Protein expressed and purified" \
+            " in native conformation prior to denaturation and refolding."
+        elif self.protein_dena == "y":
+            return "Protein synthesized by chemical means (not recombinant)" \
+            " and refolded."
+        else:
+            return "Protein recombinantly expressed as and refolded" \
+            " from inclusion bodies."
+
     def __unicode__(self):
         return str(self.refolding_id)
 
