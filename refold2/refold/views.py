@@ -3,8 +3,8 @@ from django.http import HttpResponse, HttpResponseBadRequest
 from django.template import RequestContext
 from django.shortcuts import render_to_response
 from completion import site
-from refold.models import Protein
-from refold.search_providers import ProteinSearchProvider
+from refold2.refold.models import Protein
+from refold2.refold.search_providers import ProteinSearchProvider
 
 import json
 

@@ -1,5 +1,5 @@
 from django.views.generic import ListView
-from refold.models import RefoldingRecord
+from refold2.refold.models import RefoldingRecord
 
 class RefoldingRecordListView(ListView):
 

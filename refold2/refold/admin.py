@@ -1,4 +1,4 @@
-from refold.models import Protein, RefoldingRecord, Homologue
+from refold2.refold.models import Protein, RefoldingRecord, Homologue
 from django.contrib import admin
 
 admin.site.register(Protein)

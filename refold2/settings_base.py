@@ -98,7 +98,7 @@ TEMPLATE_CONTEXT_PROCESSORS_DEFAULT = \
 
 TEMPLATE_CONTEXT_PROCESSORS = \
     ('django.contrib.auth.context_processors.auth',
-    'refold.context_processors.refolding_record_count') + \
+    'refold2.refold.context_processors.refolding_record_count') + \
     TEMPLATE_CONTEXT_PROCESSORS_DEFAULT
 
 # List of callables that know how to import templates from various sources.
@@ -132,7 +132,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'completion',
-    'refold',
+    'refold2.refold',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )

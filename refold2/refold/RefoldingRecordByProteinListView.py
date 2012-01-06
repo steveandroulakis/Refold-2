@@ -1,5 +1,5 @@
 from django.views.generic import ListView
-from refold.models import RefoldingRecord, Protein
+from refold2.refold.models import RefoldingRecord, Protein
 from django.shortcuts import get_object_or_404
 
 class RefoldingRecordByProteinListView(ListView):
