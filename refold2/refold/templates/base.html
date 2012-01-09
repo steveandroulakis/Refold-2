@@ -7,6 +7,9 @@
 	{% include "refold/includes/js.html" %}
 	
 	{% block script %}{% endblock %}
+	
+	{# this is for deployment-specific code such as analytics #}
+	{% include "refold/includes/site-specific-head.html" %}
 </head>
 
 <body>
@@ -40,5 +43,9 @@
     <div id="content">
         {% block content %}{% endblock %}
     </div>
+	
+	<div id="footer">
+		REFOLD Revamp version: {% include "refold/includes/version.html" %}
+	</div>
 </body>
 </html>
