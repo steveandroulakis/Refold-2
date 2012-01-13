@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% block title %}- Refolding Records for Protein: 
+	{{searchterm.name}}{% endblock %}
 {% block content %}
     <h2>Refolding Records ({{object_list|length}}) for Protein: <a href="../../protein/{{searchterm.protein_id}}/">{{searchterm.name}}</a></h2>
     <ul>
