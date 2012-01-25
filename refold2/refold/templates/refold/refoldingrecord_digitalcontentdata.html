@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DigitalContentData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	{% for refoldingrecord in refoldingrecord_list %}<DataRecord ProviderID="{{refoldingrecord.refolding_id}}">
+        <Header>
+            <DateProvided>{{refoldingrecord.last_updated|date:"c"}}</DateProvided>
+            <RepositoryName>Refold</RepositoryName>
+            <Owner>Copyright Thomson Reuters 2011</Owner>
+        </Header>
+        <BibliographicData>
+            <AuthorList>
+                <Author>
+                    <AuthorName>{{refoldingrecord.user.title}} {{refoldingrecord.user.name}}</AuthorName>
+                </Author>
+            </AuthorList>
+            <ItemTitle>{{refoldingrecord.construct.homologue.protein.name}}</ItemTitle>
+            <Source>
+                <SourceURL>http://refold.med.monash.edu.au/refoldingrecord/{{refoldingrecord.refolding_id}}/</SourceURL>
+                <PublisherDistributor>Refold</PublisherDistributor>
+                <CreatedDate>{{refoldingrecord.date_created|date:"c"}}</CreatedDate>
+            </Source>
+        </BibliographicData>
+        <Abstract>{{refoldingrecord.protocol}}</Abstract>
+        <DescriptorsData>
+            <KeywordsList>
+                <Keyword>Refolding</Keyword>
+                <Keyword>Protein</Keyword>
+            </KeywordsList>
+        </DescriptorsData>
+        <CitationList>
+            <Citation CitationType="Cited Ref">
+                <FullCitation>{{ refoldingrecord.report.authors }} ({{ refoldingrecord.report.year }}) {{ refoldingrecord.report.journal.journal }}, {{ refoldingrecord.report.volume }}, {{ refoldingrecord.report.pages }}</FullCitation>
+            </Citation>
+        </CitationList>
+	</DataRecord>{% endfor %}
+</DigitalContentData>																														
