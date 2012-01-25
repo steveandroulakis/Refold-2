@@ -13,6 +13,38 @@ class RefoldBaseModel(models.Model):
 
     class Meta:
         abstract = True
+        
+class UserProfile(RefoldBaseModel):
+    user_id = models.IntegerField(primary_key=True)
+    username = models.CharField(max_length=150, blank=True)
+    pwd = models.CharField(max_length=150, blank=True)
+    email = models.CharField(max_length=300, blank=True)
+    title = models.CharField(max_length=30, blank=True)
+    name = models.CharField(max_length=450)
+    website_url = models.CharField(max_length=765, blank=True)
+    org_name = models.CharField(max_length=450, blank=True)
+    user_type = models.IntegerField(null=True, blank=True)
+    last_login = models.CharField(max_length=150, blank=True)
+    last_ip = models.CharField(max_length=135, blank=True)
+    org_url = models.CharField(max_length=765)
+    show_email = models.IntegerField()
+    bio = models.TextField()
+    signature = models.CharField(max_length=765)
+    address1 = models.CharField(max_length=765)
+    city = models.CharField(max_length=150)
+    state = models.CharField(max_length=150)
+    country = models.CharField(max_length=150)
+    phone = models.CharField(max_length=60)
+    append_signature_to_comments = models.IntegerField()
+    show_contact_info = models.IntegerField()
+    address2 = models.CharField(max_length=765)
+    active = models.IntegerField()
+    joined = models.CharField(max_length=150)
+    post_count = models.IntegerField()
+    moderator_notification = models.CharField(max_length=3, blank=True)
+    user_notification = models.CharField(max_length=3, blank=True)
+    class Meta:
+        db_table = u'user'        
 
 class Additive(RefoldBaseModel):
     additive_id = models.IntegerField(primary_key=True)
@@ -51,7 +83,7 @@ class Chaperones(RefoldBaseModel):
 
 class Comment(RefoldBaseModel):
     comment_id = models.IntegerField(primary_key=True)
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(UserProfile)
     comment = models.TextField(blank=True)
     date_posted = models.DateTimeField(null=True, blank=True)
     subject = models.CharField(max_length=765)
@@ -186,7 +218,7 @@ class ProjectAim(RefoldBaseModel):
 
 class Protein(RefoldBaseModel):
     protein_id = models.IntegerField(primary_key=True)
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(UserProfile)
     family = models.ForeignKey(Family)
     name = models.CharField(unique=True, max_length=255, blank=True)
     name_short = models.CharField(max_length=75)
@@ -309,7 +341,7 @@ class Homologue(RefoldBaseModel):
 class Construct(RefoldBaseModel):
     construct_id = models.IntegerField(primary_key=True)
     homologue = models.ForeignKey(Homologue)
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(UserProfile)
     disulphides = models.ForeignKey(Disulphides)
     oligo_state = models.ForeignKey(OligoState)
     chain_length = models.IntegerField(null=True, blank=True)
@@ -356,7 +388,7 @@ class RefoldingRecord(RefoldBaseModel):
     fusion = models.ForeignKey(Fusion)
     purity = models.CharField(max_length=150, blank=True)
     construct = models.ForeignKey(Construct)
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(UserProfile)
     report = models.ForeignKey(Report)
     date_created = models.DateField()
     last_updated = models.DateField(null=True, blank=True)
@@ -452,42 +484,10 @@ class ScopClass(RefoldBaseModel):
     class Meta:
         db_table = u'scop_class'
 
-class User(RefoldBaseModel):
-    user_id = models.IntegerField(primary_key=True)
-    username = models.CharField(max_length=150, blank=True)
-    pwd = models.CharField(max_length=150, blank=True)
-    email = models.CharField(max_length=300, blank=True)
-    title = models.CharField(max_length=30, blank=True)
-    name = models.CharField(max_length=450)
-    website_url = models.CharField(max_length=765, blank=True)
-    org_name = models.CharField(max_length=450, blank=True)
-    user_type = models.IntegerField(null=True, blank=True)
-    last_login = models.CharField(max_length=150, blank=True)
-    last_ip = models.CharField(max_length=135, blank=True)
-    org_url = models.CharField(max_length=765)
-    show_email = models.IntegerField()
-    bio = models.TextField()
-    signature = models.CharField(max_length=765)
-    address1 = models.CharField(max_length=765)
-    city = models.CharField(max_length=150)
-    state = models.CharField(max_length=150)
-    country = models.CharField(max_length=150)
-    phone = models.CharField(max_length=60)
-    append_signature_to_comments = models.IntegerField()
-    show_contact_info = models.IntegerField()
-    address2 = models.CharField(max_length=765)
-    active = models.IntegerField()
-    joined = models.CharField(max_length=150)
-    post_count = models.IntegerField()
-    moderator_notification = models.CharField(max_length=3, blank=True)
-    user_notification = models.CharField(max_length=3, blank=True)
-    class Meta:
-        db_table = u'user'
-
 class UserActivation(RefoldBaseModel):
     activation_id = models.IntegerField(primary_key=True)
     activation_code = models.CharField(max_length=765)
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(UserProfile)
     user_pwd = models.CharField(max_length=765)
     class Meta:
         db_table = u'user_activation'
