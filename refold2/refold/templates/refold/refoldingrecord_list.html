@@ -3,7 +3,7 @@
 {% block title %}- Refolding Records{% endblock %}
 {% block content %}
 {% include "refold/includes/pagination.html" %}
-    <h2>Refolding Records</h2>
+    <h2>Refolding Records {% if searchterm %} for "{{searchterm}}"{% endif %}</h2>
     <ul>
 		<div>
 			<table class="datatable">

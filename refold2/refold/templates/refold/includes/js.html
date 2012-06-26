@@ -10,8 +10,15 @@
 				minLength: 2,
 				select: function( event, ui ) {
 					// alert("Selected: " + ui.item.value + " aka " + ui.item.id);
-					window.location.href = "/protein/" + ui.item.id + "/";
-				}
+					window.location.href = "/refoldingrecord/?protein=" + ui.item.value;
+				}				
 		});	
+		
+        $('input#protein-autocomplete').keydown(function (e){
+            if(e.keyCode == 13){
+                // alert('you pressed enter ^_^');
+                window.location.href = "/refoldingrecord/?protein=" + $(this).val();
+            }
+        })		
 	});
 </script>
